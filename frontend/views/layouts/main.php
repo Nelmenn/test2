@@ -16,6 +16,7 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>" class="h-100">
 <head>
+    <base href="/">
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Photomedia</title>
@@ -118,7 +119,8 @@ AppAsset::register($this);
     </header>
     <!-- header-end -->
 
-<?= $content ?>
+<?= $content?>
+
 <!-- footer_start -->
     <footer class="footer">
         <div class="footer_area">
