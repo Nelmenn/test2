@@ -7,36 +7,18 @@ use yii\db\Migration;
  */
 class m211108_070627_tag_table extends Migration
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function safeUp()
-    {
 
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function safeDown()
-    {
-        echo "m211108_070627_tag_table cannot be reverted.\n";
-
-        return false;
-    }
-
-    /*
-    // Use up()/down() to run migration code without a transaction.
     public function up()
     {
-
+             $this->createTable('tag', [
+            'id' => $this->primaryKey(),
+            'title'=>$this->string()
+        ]);
     }
 
     public function down()
     {
-        echo "m211108_070627_tag_table cannot be reverted.\n";
-
-        return false;
+        $this->dropTable('tag');
     }
-    */
+    
 }

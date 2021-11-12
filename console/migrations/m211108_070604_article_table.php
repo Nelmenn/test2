@@ -9,15 +9,21 @@ class m211108_070604_article_table extends Migration
 {
     public function up()
     {
-    'id' => $this->primaryKey(),
-    'title'
+            'id' => $this->primaryKey(),
+            'title'=>$this->string(),
+            'description'=>$this->text(),
+            'content'=>$this->text(),
+            'date'=>$this->date(),
+            'image'=>$this->string(),
+            'viewed'=>$this->integer(),
+            'user_id'=>$this->integer(),
+            'status'=>$this->integer(),
+            'category_id'=>$this->integer(),
     }
 
     public function down()
     {
-        echo "m211108_070604_article_table cannot be reverted.\n";
-
-        return false;
+         $this->dropTable('article');
     }
     
 }
