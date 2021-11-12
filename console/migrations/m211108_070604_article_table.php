@@ -9,6 +9,7 @@ class m211108_070604_article_table extends Migration
 {
     public function up()
     {
+        $this->createTable('article', [
             'id' => $this->primaryKey(),
             'title'=>$this->string(),
             'description'=>$this->text(),
@@ -19,6 +20,7 @@ class m211108_070604_article_table extends Migration
             'user_id'=>$this->integer(),
             'status'=>$this->integer(),
             'category_id'=>$this->integer(),
+        ]);
     }
 
     public function down()
