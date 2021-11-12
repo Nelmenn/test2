@@ -1,61 +1,55 @@
-<?php
-
-namespace frontend\models;
+/* Объявляем пространство имен */
+namespace app\models;
 
 use Yii;
 use yii\base\Model;
 
-/**
- * ContactForm is the model behind the contact form.
- */
+/* Объявляем класс формы */
 class ContactForm extends Model
 {
-    public $name;
-    public $email;
-    public $subject;
-    public $body;
-    public $verifyCode;
-
-
-    /**
-     * {@inheritdoc}
-     */
+    /* Объявление переменных */
+    public $name, $email, $subject, $body, $verifyCode;
+    
+    /* Правила для полей формы обратной связи (валидация) */
     public function rules()
     {
         return [
-            // name, email, subject and body are required
-            [['name', 'email', 'subject', 'body'], 'required'],
-            // email has to be a valid email address
+            /* Поля обязательные для заполнения */
+            [ ['name', 'email', 'subject', 'body'], 'required'],
+            /* Поле электронной почты */
             ['email', 'email'],
-            // verifyCode needs to be entered correctly
-            ['verifyCode', 'captcha'],
+            /* Капча */
+            ['verifyCode', 'captcha', 'captchaAction'=>'index/captcha'],
         ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
+    /* Определяем названия полей */
     public function attributeLabels()
     {
         return [
-            'verifyCode' => 'Verification Code',
+            'verifyCode' => 'Подтвердите код',
+            'name' => 'Имя',
+            'email' => 'Электронный адрес',
+            'subject' => 'Тема',
+            'body' => 'Сообщение',
         ];
     }
 
-    /**
-     * Sends an email to the specified email address using the information collected by this model.
-     *
-     * @param string $email the target email address
-     * @return bool whether the email was sent
-     */
-    public function sendEmail($email)
+    /* функция отправки письма на почту */
+    public function contact($emailto)
     {
-        return Yii::$app->mailer->compose()
-            ->setTo($email)
-            ->setFrom([Yii::$app->params['senderEmail'] => Yii::$app->params['senderName']])
-            ->setReplyTo([$this->email => $this->name])
-            ->setSubject($this->subject)
-            ->setTextBody($this->body)
-            ->send();
+        /* Проверяем форму на валидацию */
+        if ($this->validate()) {    
+            Yii::$app->mailer->compose() 
+                ->setFrom([$this->email => $this->name]) /* от кого */
+                ->setTo($emailto) /* куда */
+                ->setSubject($this->subject) /* имя отправителя */
+                ->setTextBody($this->body) /* текст сообщения */
+                ->send(); /* функция отправки письма */
+
+            return true;
+        } else {
+            return false;
+        }
     }
 }

@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\backend\\views\\layouts",
+    "\\backend\\views\\site",
+    "\\backend\\web",
+    "\\console",
+    "\\console\\migrations",
+    "\\environments\\prod",
+    "\\frontend\\views\\layouts",
+    "\\frontend\\views\\site"
+  ],
+  "SelectedNode": "\\console\\migrations\\m211108_070604_article_table.php",
+  "PreviewInSolutionExplorer": false
+}

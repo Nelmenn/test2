@@ -48,14 +48,14 @@
                          </div>
                          <div class="col-xl-4 col-md-4">
                              <div class="logo">
-                                 <a href="index.html">
+                                 <a href="index.php">
                                      <img src="img/logo.png" alt="">
                                  </a>
                              </div>
                          </div>
                          <div class="col-xl-4 col-md-4 d-none d-md-block">
                              <div class="login_resiter">
-                                 <p><a href="#"><i class="flaticon-user"></i>login</a> | <a href="#">Resister</a></p>
+                                 <p><a href="#"><i class="flaticon-user"></i>login</a> | <a href="#">SignUp</a></p>
                              </div>
                          </div>
                      </div>
@@ -68,16 +68,16 @@
                              <div class="main-menu  d-none d-lg-block">
                                  <nav>
                                      <ul id="navigation">
-                                         <li><a href="index.html">Home</a></li>
-                                         <li><a href="category.html">catagory</a></li>
-                                         <li><a href="about.html">About</a></li>
+                                         <li><a href="index.php">Home</a></li>
+                                         <li><a href="category.php">category</a></li>
+                                         <li><a href="about.php">About</a></li>
                                          <li><a class="active" href="#">pages <i class="ti-angle-down"></i></a>
                                              <ul class="submenu">
-                                                 <li><a href="elements.html">elements</a></li>
-                                                 <li><a href="single-blog.html">single-blog</a></li>
+                                                 <li><a href="elements.php">elements</a></li>
+                                                 <li><a href="single-blog.php">single-blog</a></li>
                                              </ul>
                                          </li>
-                                         <li><a href="contact.html">Contact</a></li>
+                                         <li><a href="contact.php">Contact</a></li>
                                      </ul>
                                  </nav>
                              </div>

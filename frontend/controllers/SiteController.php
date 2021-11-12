@@ -2,19 +2,20 @@
 
 namespace frontend\controllers;
 
+use app\frontend\models\SignUp;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
 use yii\base\InvalidArgumentException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
-use yii\filters\VerbFilter;
+
 use yii\filters\AccessControl;
-use common\models\LoginForm;
+
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
-use frontend\models\ContactForm;
+
 
 /**
  * Site controller
@@ -34,5 +35,10 @@ class SiteController extends Controller
     public function actionCategory()
     {
         return $this->render('category');
+    }
+    public function actionSignUp()
+    {
+        $model = new SignUp();
+        return $this->render('signup', ['model'=>$model]);
     }
 }
